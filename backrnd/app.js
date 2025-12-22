@@ -27,5 +27,10 @@ app.use("/admin", adminRoutes);
 app.use("/insert", insertRoutes);
 app.use("/scrape", scrapeData);
 
+app.get("/", (req, res) => {
+  res.json({ status: "Backend is running 🚀" });
+});
+
 // -------------------- SERVER --------------------
 export default app;
+
