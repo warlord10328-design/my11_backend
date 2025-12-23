@@ -28,9 +28,10 @@ app.use("/insert", insertRoutes);
 app.use("/scrape", scrapeData);
 
 app.get("/", (req, res) => {
-  res.json({ status: "Backend is running 🚀" });
+  res.status(200).json({ status: "Backend running 🚀" });
 });
 
 // -------------------- SERVER --------------------
 export default app;
+
 
