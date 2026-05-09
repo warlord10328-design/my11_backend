@@ -80,16 +80,22 @@ router.post("/player", upload.fields([
   }
 });
 
-router.post("/venue", async (req, res) => {
+router.get("/venue", async (req, res) => {
   try {
-    const { name, city, country } = req.body;
-    const result = await query(
-      `INSERT INTO Venue (name, city, country) VALUES ($1, $2, $3) RETURNING *`,
-      [name, city, country]
-    );
-    res.json({ success: true, message: "Venue inserted successfully", data: result.rows[0] });
+
+    res.json({
+      success: true,
+      message: "Route working"
+    });
+
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+
+    console.log(err);
+
+    res.status(500).json({
+      error: err.message
+    });
+
   }
 });
 
