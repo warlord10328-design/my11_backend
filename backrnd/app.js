@@ -21,7 +21,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ["http://localhost:3000","http://localhost:3001","http://10.116.35.158:3000"],
+    origin: ["https://my11-admin-run.vercel.app"],
     credentials: true,
   })
 );
