@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-import adminRoutes from "./auth/adminauth.js";
+import adminRoutes from "./admin/signin/adminauth.js";
 
 const app = express();
 
