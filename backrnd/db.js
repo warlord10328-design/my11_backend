@@ -10,12 +10,9 @@ const pool = new pg.Pool({
   },
 });
 
-export const query = (text, params) => pool.query(text, params);
+// simple query helper
+export const query = (text, params) => {
+  return pool.query(text, params);
+};
 
-pool.connect((err, client, release) => {
-  if (err) {
-    return console.error("Error connecting to Neon database", err.stack);
-  }
-  console.log("Connected to Neon PostgreSQL database successfully!");
-  release();
-});
+export default pool;
