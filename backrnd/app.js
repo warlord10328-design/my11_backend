@@ -11,13 +11,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: "https://my11-admin-run.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors());
 
 // -------------------- ROUTES --------------------
 app.use("/", userRoutes);
