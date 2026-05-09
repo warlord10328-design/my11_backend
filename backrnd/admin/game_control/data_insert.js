@@ -314,4 +314,35 @@ router.post("/prize", async (req, res) => {
   }
 });
 
+router.get("/player/check", async (req, res) => {
+  try {
+    const { name } = req.query;
+
+    if (!name) {
+      return res.status(400).json({
+        exists: false,
+        message: "Player name is required",
+      });
+    }
+
+    const result = await query(
+      `SELECT id FROM player 
+       WHERE LOWER(name) = LOWER($1)
+       LIMIT 1`,
+      [name]
+    );
+
+    res.json({
+      exists: result.rows.length > 0,
+    });
+  } catch (err) {
+    console.error("PLAYER CHECK ERROR:", err);
+
+    res.status(500).json({
+      exists: false,
+      message: err.message,
+    });
+  }
+});
+
 export default router;
