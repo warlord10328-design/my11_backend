@@ -1,34 +1,23 @@
 import express from "express";
 import cors from "cors";
-import cookieParser from "cookie-parser";
-
-import adminSignin from "./admin/signin/adminauth.js";
-
 
 const app = express();
 
-// -------------------- CORS --------------------
 app.use(cors({
   origin: "https://my11-admin-run.vercel.app",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  credentials: true
 }));
 
-// IMPORTANT
 app.options("*", cors());
 
-// -------------------- MIDDLEWARE --------------------
-app.use(express.json());
-app.use(cookieParser());
-
-// -------------------- ROUTES --------------------
-app.use("/", userRoutes);
-app.use("/admin", adminSignin);
-
-// health route
 app.get("/", (req, res) => {
-  res.send("Backend Running");
+  res.send("working");
+});
+
+app.post("/admin/login", (req, res) => {
+  res.json({
+    success: true
+  });
 });
 
 export default app;
