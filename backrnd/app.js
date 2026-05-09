@@ -21,8 +21,9 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ["https://my11-admin-run.vercel.app"],
-    credentials: true,
+    origin: "https://my11-admin-run.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
