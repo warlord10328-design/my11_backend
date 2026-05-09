@@ -80,23 +80,15 @@ router.post("/player", upload.fields([
   }
 });
 
-router.get("/venue", async (req, res) => {
-  try {
+router.post("/venue", (req, res) => {
 
-    res.json({
-      success: true,
-      message: "Route working"
-    });
+  console.log("Venue route hit");
 
-  } catch (err) {
+  res.json({
+    success: true,
+    message: "Venue route working"
+  });
 
-    console.log(err);
-
-    res.status(500).json({
-      error: err.message
-    });
-
-  }
 });
 
 // ---------- GET CONTESTS ----------
